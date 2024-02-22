@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-#green-space{
+.green-space{
     background-color: #128C7E;
     height: 20vh;
     width: 100%;
@@ -17,7 +17,7 @@
 }
 
 h1{
-    color: white;
+    color: whitesmoke;
 }
 
 table{
