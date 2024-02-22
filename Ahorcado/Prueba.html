@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Teclado Virtual</title>
+    <script>
+
+        const keys = document.querySelectorAll('.key');
+
+        keys.forEach(key => {
+            key.addEventListener('click', () => {
+                const keyCode = key.getAttribute('data-key');
+                simulateKeyPress(keyCode);
+            });
+        });
+
+        document.addEventListener('keydown', event => {
+            const keyCode = event.keyCode.toString();
+            const keyElement = document.querySelector(`[data-key="${keyCode}"]`);
+            if (keyElement) {
+                simulateKeyPress(keyCode);
+            }
+        });
+
+        function simulateKeyPress(keyCode) {
+            alert(`Tecla presionada: ${getKeyName(keyCode)}`);
+            // Aquí puedes realizar otras acciones según la tecla presionada
+        }
+
+        function getKeyName(keyCode) {
+            return String.fromCharCode(keyCode);
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <div class="keyboard">
+        <!-- Filas de teclas del teclado -->
+        <div class="keyboard-row">
+            <button class="key" data-key="81">Q</button>
+            <button class="key" data-key="87">W</button>
+            <button class="key" data-key="69">E</button>
+            <button class="key" data-key="82">R</button>
+            <button class="key" data-key="84">T</button>
+            <button class="key" data-key="89">Y</button>
+            <button class="key" data-key="85">U</button>
+            <button class="key" data-key="73">I</button>
+            <button class="key" data-key="79">O</button>
+            <button class="key" data-key="80">P</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key" data-key="65">A</button>
+            <button class="key" data-key="83">S</button>
+            <button class="key" data-key="68">D</button>
+            <button class="key" data-key="70">F</button>
+            <button class="key" data-key="71">G</button>
+            <button class="key" data-key="72">H</button>
+            <button class="key" data-key="74">J</button>
+            <button class="key" data-key="75">K</button>
+            <button class="key" data-key="76">L</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key" data-key="90">Z</button>
+            <button class="key" data-key="88">X</button>
+            <button class="key" data-key="67">C</button>
+            <button class="key" data-key="86">V</button>
+            <button class="key" data-key="66">B</button>
+            <button class="key" data-key="78">N</button>
+            <button class="key" data-key="77">M</button>
+        </div>
+    </div>
+    </center>
+
+</body>
+
+</html>

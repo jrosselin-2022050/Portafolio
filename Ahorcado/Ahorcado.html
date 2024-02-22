@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Ahorcado</title>
+    <link href="http://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
+    <link rel="stylesheet" href="Estilos.css">
+    <script type="text/javascript" src="palabras.js" defer></script>
+    <script type="text/javascript" src="script.js" defer></script>
+    <script>
+        const Teclas = document.querySelectorAll('.key');
+
+        Teclas.forEach(key => {
+            key.addEventListener('click', () => {
+                const keyCode = key.getAttribute('data-key');
+                simulateKeyPress(keyCode);
+            });
+        });
+
+        document.addEventListener('keydown', event => {
+            const keyCode = event.keyCode.toString();
+            const keyElement = document.querySelector(`[data-key="${keyCode}"]`);
+            if (keyElement) {
+                simulateKeyPress(keyCode);
+            }
+        });
+
+        function simulateKeyPress(keyCode) {
+            alert(`Tecla presionada: ${getKeyName(keyCode)}`);
+
+        }
+
+        function getKeyName(keyCode) {
+            return String.fromCharCode(keyCode);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Ahorcado Pixel</h1>
+    <div>
+        <canvas id="canvas"></canvas>
+        <div id="letrasUsadas"></div>
+    </div>
+    <div id="letrasUsadas"></div>
+    <div id="PalabraContenedor"></div>
+    <button id="Comenzar">START</button>
+    <br>
+    <br>
+    <center>
+        <div class="Teclado">
+        <!-- Filas de teclas del teclado -->
+        <div class="Teclado-row">
+            <button class="Tecla" data-key="81">Q</button>
+            <button class="Tecla" data-key="87">W</button>
+            <button class="Tecla" data-key="69">E</button>
+            <button class="Tecla" data-key="82">R</button>
+            <button class="Tecla" data-key="84">T</button>
+            <button class="Tecla" data-key="89">Y</button>
+            <button class="Tecla" data-key="85">U</button>
+            <button class="Tecla" data-key="73">I</button>
+            <button class="Tecla" data-key="79">O</button>
+            <button class="Tecla" data-key="80">P</button>
+        </div>
+        <div class="Teclado-row">
+            <button class="Tecla" data-key="65">A</button>
+            <button class="Tecla" data-key="83">S</button>
+            <button class="Tecla" data-key="68">D</button>
+            <button class="Tecla" data-key="70">F</button>
+            <button class="Tecla" data-key="71">G</button>
+            <button class="Tecla" data-key="72">H</button>
+            <button class="Tecla" data-key="74">J</button>
+            <button class="Tecla" data-key="75">K</button>
+            <button class="Tecla" data-key="76">L</button>
+        </div>
+        <div class="Teclado-row">
+            <button class="Tecla" data-key="90">Z</button>
+            <button class="Tecla" data-key="88">X</button>
+            <button class="Tecla" data-key="67">C</button>
+            <button class="Tecla" data-key="86">V</button>
+            <button class="Tecla" data-key="66">B</button>
+            <button class="Tecla" data-key="78">N</button>
+            <button class="Tecla" data-key="77">M</button>
+        </div>
+    </div>
+    </center>
+</body>
+
+</html>
